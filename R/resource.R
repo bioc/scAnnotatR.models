@@ -13,8 +13,7 @@
 #' the Jerby-Arnon melanoma dataset, the Haniffa skin cell atlas, and the
 #' Haniffa Covid-19 cell atlas.
 #' @docType data
-#' @usage default_models
-#' @format a list of \code{\link{scClassifR}} objects
+#' @format a list of \code{\link{scAnnotatR}} objects
 #' @author Vy Nguyen, November 2020
 #' @keywords datasets
 "default_models"
