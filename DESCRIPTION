@@ -9,5 +9,6 @@ Description: This package contains pretrained models used for scAnnotatR package
 License: MIT + file LICENSE
 Encoding: UTF-8
 biocViews: AnnotationData, AnnotationHub, FunctionalAnnotation, Homo_sapiens
-Depends: R (>= 4.1), scAnnotatR
+Depends: R (>= 4.1)
+Suggests: scAnnotatR
 RoxygenNote: 7.1.0
