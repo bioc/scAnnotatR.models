@@ -1,0 +1,102 @@
+---
+title: "Introduction to scAnnotatR.models"
+author: "Johannes Griss"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{1. Introduction to scAnnotatR}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+options(rmarkdown.html_vignette.check_title = FALSE)
+```
+
+## Introduction
+
+The **scAnnotatR.models** packages contains a set of pre-trained models to classify
+various (immune) cell types in human data to be used by the `scAnnotatR` package.
+
+`scAnnotatR` is an R package for cell type prediction on single cell 
+RNA-sequencing data. Currently, this package supports data in the forms 
+of a `Seurat` object or a `SingleCellExperiment` object.
+
+If you are interested in directly applying these models to your data, please
+refer to the vignettes of the `scAnnotatR` package.
+
+## Installation
+
+The `scAnnotatR.models` package is a `AnnotationHub` package. Normally, it
+is automatically loaded by the `scAnnotatR` package.
+
+To load the package manually into your R session, please use the Bioconductor
+`AnnotationHub` package:
+
+```{r}
+# install the AnnotationHub package if needed
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("AnnotationHub")
+
+# use the AnnotationHub to load the scAnnotatR.models package
+
+library(AnnotationHub)
+eh <- AnnotationHub()
+
+# load the stored models
+models <- query(eh, "scAnnotatR.models")
+```
+
+## Data Structure
+
+The `models` object is a named list containing the cell type's name as key
+and the respective classifier as value:
+
+```{r}
+# print the available cell types
+names(models)
+```
+
+Each classifier is an instance of the `scAnnotatR S4 class`. For example:
+
+```{r}
+models[['B cells']]
+```
+
+## Included models
+
+The `scAnnotatR` package comes with several pre-trained models to classify
+cell types.
+
+```{r}
+# load scAnnotatR into working space
+library(scAnnotatR)
+```
+
+The models are stored in the `default_models` object:
+
+```{r}
+default_models <- load_models("default")
+names(default_models)
+```
+
+The `default_models` object is named a list of classifiers. Each classifier 
+is an instance of the `scAnnotatR S4 class`. For example:
+
+```{r}
+default_models[['B cells']]
+```
+
+Please refer to the `scAnnotatR` package documentation for detailed information
+about how to use these classifiers.
+
+## Session Info
+```{r}
+sessionInfo()
+```
