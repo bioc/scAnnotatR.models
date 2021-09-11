@@ -49,7 +49,7 @@ if (!requireNamespace("AnnotationHub"))
 eh <- AnnotationHub::AnnotationHub()
 
 # load the stored models
-models <- query(eh, "scAnnotatR.models")
+models <- AnnotationHub::query(eh, "scAnnotatR.models")
 ```
 
 ## Data Structure
