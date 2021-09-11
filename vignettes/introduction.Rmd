@@ -42,12 +42,11 @@ To load the package manually into your R session, please use the Bioconductor
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
-BiocManager::install("AnnotationHub")
+if (!requireNamespace("AnnotationHub"))
+  BiocManager::install("AnnotationHub")
 
 # use the AnnotationHub to load the scAnnotatR.models package
-
-library(AnnotationHub)
-eh <- AnnotationHub()
+eh <- AnnotationHub::AnnotationHub()
 
 # load the stored models
 models <- query(eh, "scAnnotatR.models")
@@ -97,6 +96,7 @@ Please refer to the `scAnnotatR` package documentation for detailed information
 about how to use these classifiers.
 
 ## Session Info
+
 ```{r}
 sessionInfo()
 ```
