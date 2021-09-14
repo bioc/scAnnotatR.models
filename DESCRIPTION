@@ -2,7 +2,7 @@ Package: scAnnotatR.models
 Type: Package
 Title: Pretrained models for scAnnotatR package. These models can be used to automatically classify
        several (immune) cell types in human scRNA-seq data.
-Version: 0.99.7
+Version: 0.99.8
 Authors@R: 
     c(person("Vy", "Nguyen", email = "thi-tuong-vy.nguyen@meduniwien.ac.at", role = c("aut"), comment = c(ORCID = "0000-0003-3436-3662")),
       person("Johannes", "Griss", email = "johannes.griss@meduniwien.ac.at", role = c("cre"), comment = c(ORCID = "0000-0003-2206-9511")))

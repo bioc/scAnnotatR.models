@@ -38,19 +38,12 @@ To load the package manually into your R session, please use the Bioconductor
 `AnnotationHub` package:
 
 ```{r}
-# install the AnnotationHub package if needed
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-
-if (!requireNamespace("AnnotationHub"))
-  BiocManager::install("AnnotationHub")
-
 # use the AnnotationHub to load the scAnnotatR.models package
 eh <- AnnotationHub::AnnotationHub()
 
 # load the stored models
 query <- AnnotationHub::query(eh, "scAnnotatR.models")
-models <- query[[1]]
+models <- query[["AH95906"]]
 ```
 
 ## Data Structure
@@ -76,6 +69,9 @@ cell types.
 
 ```{r}
 # load scAnnotatR into working space
+if (!requireNamespace("scAnnotatR"))
+  BiocManager::install("scAnnotatR")
+
 library(scAnnotatR)
 ```
 
