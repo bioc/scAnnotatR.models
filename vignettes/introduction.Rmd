@@ -68,10 +68,7 @@ The `scAnnotatR` package comes with several pre-trained models to classify
 cell types.
 
 ```{r}
-# load scAnnotatR into working space
-if (!requireNamespace("scAnnotatR"))
-  BiocManager::install("scAnnotatR")
-
+# Load the scAnnotatR package to view the models
 library(scAnnotatR)
 ```
 
